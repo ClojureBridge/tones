@@ -1,6 +1,12 @@
 # tones
 a beginner friendly simple apps that create tones or sounds by Clojure
 
+#### current status - ** under construction as of May 22, 2015 **
+This overtone app is on the way to become a part of ClojureBridge curriculum.
+It is a nice, fun app worth trying out right now.
+However, document has gaps for beginners and, sometime, may not be easy to follow for beginners.
+If your students have some exeprience on Clojure or other languages, this app may be a good one after drawing app.
+
 
 License
 -------
