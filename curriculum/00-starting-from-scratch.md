@@ -73,22 +73,26 @@ Once the project has been created, we need to edit the
 
 Open `project.clj` and change the file from this:
 
-    (defproject explore-overtone "0.1.0-SNAPSHOT"
-      :description "FIXME: write description"
-      :url "http://example.com/FIXME"
-      :license {:name "Eclipse Public License"
-                :url "http://www.eclipse.org/legal/epl-v10.html"}
-      :dependencies [[org.clojure/clojure "1.6.0"]])
+```clojure
+(defproject explore-overtone "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]])
+```
 
 To this:
 
-    (defproject explore-overtone "0.1.0-SNAPSHOT"
-      :description "FIXME: write description"
-      :url "http://example.com/FIXME"
-      :license {:name "Eclipse Public License"
-                :url "http://www.eclipse.org/legal/epl-v10.html"}
-      :dependencies [[org.clojure/clojure "1.7.0"]
-                     [overtone "0.9.1"]])
+```clojure
+(defproject explore-overtone "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [overtone "0.9.1"]])
+```
 
 The differences are two:
 
@@ -98,20 +102,21 @@ The differences are two:
 
 2. `[overtone "0.9.1"]`
 
-    This is the one that means adding Overtone library to the project.
+    We just added the Overtone library to our project
 
 
 > Newer versions of libraries are continually released.
-> To check what version is the latest of that library,
-> Go to https://clojars.org/ and type library name, for example
-> overtone.
+> To check what version is the latest,  go to https://clojars.org/ and
+> type library name, for example, overtone.
 
 
 ### Test the project
 
 If you finish editing `project,clj`, start `lein repl`.
 
-    lein repl
+```bash
+lein repl
+```
 
 The first time you run this, the `lein` program will take a while as
 it downloads our Overtone world.
@@ -120,7 +125,9 @@ While all the libraries have been downloaded, they aren’t loaded into
 our REPL&#x2026;not just yet. Bring them into our session, by typing the
 following into the REPL:
 
-    (use 'overtone.live)
+```clojure
+(use 'overtone.live)
+```
 
 This command may spit out some technical warnings, but we’ll ignore
 them for the moment, as we bask in welcome message:
