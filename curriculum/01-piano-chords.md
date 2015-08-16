@@ -1,22 +1,22 @@
 Twinkle Stars - Making Sounds with Overtone
 ===========================================
 
-Prelude
--------
+1. Prelude
+----------
 
-> This is a story of Meg who attended a ClojureBridge workshop
-> recently.  Meg has always been a bit of a music nerd, but wondered
-> why DJs always used laptops on stage. Then she saw a live music
-> coding video, and read that they use Clojure to create the
-> music. Intrigued, she started to investigate Overtone.
+This is a story of Meg who attended a ClojureBridge workshop
+recently.  Meg has always been a bit of a music nerd, but wondered
+why DJs always used laptops on stage. Then she saw a live music
+coding video, and read that they use Clojure to create the
+music. Intrigued, she started to investigate Overtone.
 
 [Overtone](http://overtone.github.io) is a way to generate sounds,
 instruments and music using Clojure. While it is very advanced, it is
 pretty easy to get started, and interesting to explore.
 
 
-Tuning - getting started
-------------------------
+2. Tuning - getting started
+----------------------------
 
 ### Download the project
 
@@ -67,8 +67,8 @@ to make piano sounds.
 * https://github.com/overtone/overtone/blob/master/src/overtone/examples/workshops/resonate2013/ex01_phrasestudy.clj
 
 
-Etude - Playing Piano Notes
----------------------------
+3. Etude - Playing Piano Notes
+------------------------------
 
 Overtone is quite modular, and even at this point, not everything is
 available to us. Let’s bring in a piano sound, by typing the
@@ -236,8 +236,8 @@ getting bloody.
 Clojure is all about *succinctness*, however, let’s leave this and
 move on to other ways to make music.
 
-Encore
--------
+4. Encore
+---------
 
 
 While we will move on, if you are interested in playing realistic
