@@ -1,5 +1,8 @@
-The following *after-bridge* extension will further expand your
-knowledge of Clojure by investigating a Clojure extension for creating music.
+Twinkle Stars - Making Sounds with Overtone
+===========================================
+
+Prelude
+-------
 
 > This is a story of Meg who attended a ClojureBridge workshop
 > recently.  Meg has always been a bit of a music nerd, but wondered
@@ -11,78 +14,61 @@ knowledge of Clojure by investigating a Clojure extension for creating music.
 instruments and music using Clojure. While it is very advanced, it is
 pretty easy to get started, and interesting to explore.
 
-# Creating a Project with Overtone
 
-Like most Clojure projects, we begin by using `lein` to create a
-project to contain our programs:
+Tuning - getting started
+------------------------
 
-    lein new explore-overtone
+### Download the project
 
-Where you should see something like:
+Meg has already learned ClojureBridge has a template project for
+Overtone. The first thing to get started is to *clone out* that
+project using `git` command.
 
-    Generating a project called explore-overtone based on the 'default' template.
-    The default template is intended for library projects, not applications.
-    To see other templates (app, plugin, etc), try `lein help new`.
+Meg opened the terminal and typed the command:
 
-Once the skeleton program has been created, we need to edit the
-`project.clj` to add Overtone as a required library (dependency), so
-change the file from this:
+```bash
+git clone https://github.com/ClojureBridge/tones.git
+```
 
-    (defproject explore-overtone "0.1.0-SNAPSHOT"
-      :description "FIXME: write description"
-      :url "http://example.com/FIXME"
-      :license {:name "Eclipse Public License"
-                :url "http://www.eclipse.org/legal/epl-v10.html"}
-      :dependencies [[org.clojure/clojure "1.6.0"]])
+> (Option) It's a good practice to start from creating a Clojure
+> project. [Starting from scratch](00-starting-from-scratch.md)
+> explains how to do that. Try it later.
 
-To this:
+### Evaluate the file
 
-    (defproject explore-overtone "0.1.0-SNAPSHOT"
-      :description "FIXME: write description"
-      :url "http://example.com/FIXME"
-      :license {:name "Eclipse Public License"
-                :url "http://www.eclipse.org/legal/epl-v10.html"}
-      :dependencies [[org.clojure/clojure "1.6.0"]
-                     [overtone "0.9.1"]])
+Soon, `git` command downloaded the project, so Meg started Light Table
+and opened the file `tones/src/tones/play.clj`
+Next, she evaluated `play.clj` by hitting
+<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>
+(or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>),
+which took a while to finish.
 
-For the first part of our exploration of Overtone, we will use a
-REPL:
+When it completed, hey listen, music!
+Familiar melody of "Twinkle Little Star" came out from Meg's computer.
 
-    lein repl
+Meg moved the cursor right next to `(twinkle)` and evaluated this line
+by hitting
+<kbd>Cmd</kbd> + <kbd>Enter</kbd>
+(or <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
+Again, she heard the music. It was the first part of "Twinkle Little
+Star" played by a piano.
 
-The first time you run this, the `lein` program will take a while as
-it downloads our Overtone world.
+### What to look at
 
-While all the libraries have been downloaded, they aren’t loaded into
-our REPL&#x2026;not just yet. Bring them into our session, by typing the
-following into the REPL:
+Although the music was childish, naive one, it was enough to make Meg
+very excited.
+Immediately, Meg went to the Overtone github repository on the
+browser, https://github.com/overtone/overtone, and looked around the
+repository.
+She found many examples there. Among those, these two looked helpful
+to make piano sounds.
 
-    (use 'overtone.live)
-
-This command may split out some technical warnings, but we’ll ignore
-them for the moment, as we bask in welcome message:
-
-    SC_AudioDriver: sample rate = 44100.000000, driver's block size = 512
-    Exception in World_OpenUDP: unable to bind udp socket
-
-    --> Connecting to internal SuperCollider server...
-    --> Connection established
-
-        _____                 __
-       / __  /_  _____  _____/ /_____  ____  ___
-      / / / / | / / _ \/ ___/ __/ __ \/ __ \/ _ \
-     / /_/ /| |/ /  __/ /  / /_/ /_/ / / / /  __/
-     \____/ |___/\___/_/   \__/\____/_/ /_/\___/
-
-       Collaborative Programmable Music. v0.9.1
+* https://github.com/overtone/overtone/blob/master/src/overtone/examples/getting_started/pragpub-article.clj
+* https://github.com/overtone/overtone/blob/master/src/overtone/examples/workshops/resonate2013/ex01_phrasestudy.clj
 
 
-    Cometh the hour, cometh your.name.here, the overtone hacker.
-
-    nil
-    user=>
-
-# Playing Piano Notes
+Etude - Playing Piano Notes
+---------------------------
 
 Overtone is quite modular, and even at this point, not everything is
 available to us. Let’s bring in a piano sound, by typing the
@@ -249,6 +235,10 @@ typing would require a serious editor to keep our fingers from
 getting bloody.
 Clojure is all about *succinctness*, however, let’s leave this and
 move on to other ways to make music.
+
+Encore
+-------
+
 
 While we will move on, if you are interested in playing realistic
 sounds, look at [this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html) for building up an
