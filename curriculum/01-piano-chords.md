@@ -1,9 +1,6 @@
 Twinkle Stars - Making Sounds with Overtone
 ===========================================
 
-1. Prelude
-----------
-
 This is a story of Meg who attended a ClojureBridge workshop
 recently.  Meg has always been a bit of a music nerd, but wondered
 why DJs always used laptops on stage. Then she saw a live music
@@ -15,7 +12,7 @@ instruments and music using Clojure. While it is very advanced, it is
 pretty easy to get started, and interesting to explore.
 
 
-2. Tuning - getting started
+1. Prelude - getting started
 ----------------------------
 
 ### Download the project
@@ -67,37 +64,73 @@ to make piano sounds.
 * https://github.com/overtone/overtone/blob/master/src/overtone/examples/workshops/resonate2013/ex01_phrasestudy.clj
 
 
-3. Etude - Playing Piano Notes
+2. Etude - Playing Piano Notes
 ------------------------------
 
-Overtone is quite modular, and even at this point, not everything is
-available to us. Let’s bring in a piano sound, by typing the
-following to use a piano function:
+#### basic `piano` function usage
 
-    (use 'overtone.inst.piano)
+Meg started using Overtone functions.
+The first function she tried was `piano` without any argument, very
+basic one.
+Meg typed the function below in the file, `play.clj`:
 
-And let’s play a note, by calling the `piano` function:
+```clojure
+(piano)
+```
 
-    (piano)
+then, evaluated this line. Yes! She heard a piano note from her
+computer. Meg evaluate this simple function a couple of times with joy.
 
-Did you hear a piano note? Great! If not, we may have to diagnose
-our audio (you did turn up the volume, right?).<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> You can hit the up
-arrow and the Return key in the REPL to quickly repeat this function.
+> If you didn't heard anything, check the volume.
+> you did turn up the volume, right?
 
-The `piano` function takes a note number:
+### `piano` function argument
 
-    (piano 48)
+Meg has already learned `piano` function takes a note number as an
+argument. For example:
 
-The `48` is the number that corresponds to the note. Since musicians
-are used to notes, not numbers, Overtone includes a `note` function:
+```clojure
+(piano 48)
+```
 
-    (note :c3)
+The `48` is the number that corresponds to the note. However, musicians
+are used to notes, not numbers, so they want to write notes instead of
+number as the argument.
+Overtone has a nice converter function, `note`.
 
-Executing this function returns `48`, so the value of `48`
-corresponds to a `C` note in the third octave. We could play our
-note this way:
+When Meg used the function like this:
 
-    (piano (note :c3))
+```clojure
+(note :c3)
+```
+
+The function returned `48`, so the value of `:c3` is `48`.
+
+Before randomly try various note, Meg googled to find the
+correspondence between number and note. Soon, she found many.
+
+![midi note](img/logic-midi-note-numbers.png)
+
+[LOGIC STUDIO 9 MIDI NOTE NUMBERS](http://cote.cc/blog/logic-studio-9-midi-note-numbers)
+
+
+
+![notes](img/Theory-staff-cmajortreble.png)
+
+[Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory)
+
+
+Meg understood `:c3` expressed a `C` note in the third octave.
+
+Using note, she could make a piano note like this:
+
+```clojure
+(piano (note :c3))
+```
+
+
+### `chord` function
+
 
 Let’s look at another function, `chord`. We can get more information
 about it by using the `doc` function. Type this into the REPL:

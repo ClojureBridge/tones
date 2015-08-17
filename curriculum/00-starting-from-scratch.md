@@ -15,7 +15,7 @@ familiarize to a Clojure application.
 
 This document explains how to create a project that uses Overtone.
 
-### Create a project
+### 1. Create a project
 
 Like we learned by the
 [first project](https://github.com/ClojureBridge/drawing/blob/master/curriculum/first-program.md#create-a-project),
@@ -66,7 +66,7 @@ This is to manage Java languages's restriction. Clojure is written on
 top of Java, so sometimes, Clojure needs to care about such restrictions.
 
 
-### Add Overtone to the project
+### 2. Add Overtone to the project
 
 Once the project has been created, we need to edit the
 `project.clj` to add Overtone as a required library (dependency).
@@ -110,7 +110,7 @@ The differences are two:
 > type library name, for example, overtone.
 
 
-### Test the project
+### 3. Test the project
 
 If you finish editing `project,clj`, start `lein repl`.
 
@@ -152,3 +152,79 @@ them for the moment, as we bask in welcome message:
     nil
     user=>
 
+### 4. Edit a Clojure file
+
+When you ran `lein new`, the command created a template Clojure file
+also. You may create another file, but let's use the template file for
+now.
+
+
+Open `src/explore_overtone/core.clj`, which has a foo function.
+
+```clojure
+;; src/explore_overtone/core.clj
+
+(ns explore-overtone.core)
+
+(defn foo
+"I don't do a whole lot."
+[x]
+  (println x "Hello, World!"))
+```
+
+#### add overtone library
+
+Like we loaded Overtone library on `lein repl` by typing `use`,
+the library should be loaded from Clojure file also.
+To do this, we need to add the line below to `ns` form.
+
+```clojure
+  (:use [overtone.live])
+```
+
+Additionally, we want to add one more library since we are going to
+use piano notes. So, our `use` form will be:
+
+```clojure
+  (:use [overtone.live]
+        [overtone.inst.piano]))
+```
+
+Since Overtone is designed to be quite modular, just loading
+`overtone.live` isn't enough to make piano sounds.
+You can make your computer beep machine, but not piano player.
+This is the reason we added `overtone.inst.piano`.
+
+At this moment, our `core.clj` looks like:
+
+```clojure.clj
+;; core.clj with overtone libraries
+(ns explore-overtone.core
+  (:use [overtone.live]
+        [overtone.inst.piano]))
+
+(defn foo
+  "I don't do a whole lot."
+  [x]
+  (println x "Hello, World!"))
+```
+
+#### function that plays a piano note
+
+Now we are ready to make a piano note.
+Let's change the `foo` function to make sound.
+
+Change `foo` function to this:
+
+```clojure
+(defn foo
+  "I make a piano note"
+  []
+  (piano))
+```
+
+#### run `foo` function
+
+To run `foo` function, evaluate `core.clj` file.
+Then, type `(foo)`, and evaluate this line.
+Did you hear the sound from your computer?
