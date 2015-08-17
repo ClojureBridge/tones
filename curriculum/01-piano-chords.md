@@ -93,10 +93,11 @@ argument. For example:
 (piano 48)
 ```
 
-The `48` is the number that corresponds to the note. However, musicians
-are used to notes, not numbers, so they want to write notes instead of
-number as the argument.
-Overtone has a nice converter function, `note`.
+The `48` is the number that corresponds to the note.
+However, just numbers were bit hard to figure out what note she made.
+Actually she has heard musicians are used to notes, not numbers,
+so they want to write notes instead of number as the argument.
+Meg found a nice Overtone converter function, `note`.
 
 When Meg used the function like this:
 
@@ -104,25 +105,20 @@ When Meg used the function like this:
 (note :c3)
 ```
 
-The function returned `48`, so the value of `:c3` is `48`.
+it returned `48`, so the value of `:c3` is `48`.
 
-Before randomly try various note, Meg googled to find the
-correspondence between number and note. Soon, she found many.
+Before randomly try various notes, Meg googled to find the
+correspondence between numbers and notes. Soon, she found many.
+For example,
 
 ![midi note](img/logic-midi-note-numbers.png)
-
-[LOGIC STUDIO 9 MIDI NOTE NUMBERS](http://cote.cc/blog/logic-studio-9-midi-note-numbers)
-
-
+from [LOGIC STUDIO 9 MIDI NOTE NUMBERS](http://cote.cc/blog/logic-studio-9-midi-note-numbers)
 
 ![notes](img/Theory-staff-cmajortreble.png)
+from [Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory)
 
-[Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory)
-
-
-Meg understood `:c3` expressed a `C` note in the third octave.
-
-Using note, she could make a piano note like this:
+Looking at the chart, Meg understood `:c3` expressed a `C` note in the third octave starting
+from zero octave. Now, she could make a piano note like this:
 
 ```clojure
 (piano (note :c3))
@@ -131,8 +127,14 @@ Using note, she could make a piano note like this:
 
 ### `chord` function
 
+While googling, Meg remembered that there were the sound called
+*chord*, mixture of a couple of notes.
 
-Let’s look at another function, `chord`. We can get more information
+![chord](img/chords_c3.png)
+
+
+Overtone has a handy function,`chord`, which generates three chord digits.
+We can get more information
 about it by using the `doc` function. Type this into the REPL:
 
     (doc chord)
