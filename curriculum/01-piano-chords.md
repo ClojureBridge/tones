@@ -50,6 +50,12 @@ by hitting
 Again, she heard the music. It was the first part of "Twinkle Little
 Star" played by a piano.
 
+> On `lein repl`, start up repl at the top tones directory.
+> Next, `(require 'tones.play)`, which loads and evaluates the file.
+> You should hear a melody once the file evaluation finishes.
+> To listen the melody again, change the namespace by typing
+> `(ns tones.play)`, then `(twinkle)`.
+
 ### What to look at
 
 Although the music was childish, naive one, it was enough to make Meg
@@ -111,8 +117,7 @@ Before randomly try various notes, Meg googled to find the
 correspondence between numbers and notes. Soon, she found many.
 For example,
 
-![midi note](img/logic-midi-note-numbers.png)
-from [LOGIC STUDIO 9 MIDI NOTE NUMBERS](http://cote.cc/blog/logic-studio-9-midi-note-numbers)
+![midi note](img/midi-int-midi-note-no-chart.jpg)
 
 ![notes](img/Theory-staff-cmajortreble.png)
 from [Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory)
@@ -127,30 +132,30 @@ from zero octave. Now, she could make a piano note like this:
 
 ### `chord` function
 
-While googling, Meg remembered that there were the sound called
-*chord*, mixture of a couple of notes.
+While googling, Meg noticed that there were the sound called
+a *chord*, a mixture of a couple of notes, like this:
 
 ![chord](img/chords_c3.png)
 
+Meg realized that Overtone's `chord` function was a handy chords
+generator, which returns three chord in digits.
+Too learn how to use `chord` function, Meg looked at the document.
+She moved the cursor right next to the function name *chord*,
+right clicked and selected "show docs".
 
-Overtone has a handy function,`chord`, which generates three chord digits.
-We can get more information
-about it by using the `doc` function. Type this into the REPL:
+> On repl, `(doc chord)`
 
-    (doc chord)
 
-Which returns:
+```clojure
+overtone.live
+([root chord-name] [root chord-name inversion])
+Returns a set of notes for the specified chord. The root must be in
+  midi note format i.e. :C4.
 
-    user=> (doc chord)
-    -------------------------
-    overtone.live/chord
-    ([root chord-name] [root chord-name inversion])
-      Returns a set of notes for the specified chord. The root must be in
-      midi note format i.e. :C4.
-
-      (chord :c4 :major)  ; c major           -> #{60 64 67}
-      (chord :a4 :minor)  ; a minor           -> #{57 60 64}
-      (chord :Bb4 :dim)   ; b flat diminished -> #{70 73 76}
+  (chord :c4 :major)  ; c major           -> #{60 64 67}
+  (chord :a4 :minor)  ; a minor           -> #{57 60 64}
+  (chord :Bb4 :dim)   ; b flat diminished -> #{70 73 76}
+```
 
 Ah, so the following function call:
 
