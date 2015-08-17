@@ -1,5 +1,6 @@
 (ns tones.play
-  (:use [tones.core]
+  (:use [clojure.repl]
+        [tones.core]
         [overtone.live]
         [overtone.inst.piano]))
 
