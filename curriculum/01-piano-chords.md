@@ -157,13 +157,13 @@ Returns a set of notes for the specified chord. The root must be in
   (chord :Bb4 :dim)   ; b flat diminished -> #{70 73 76}
 ```
 
-Meg talked to herself, "ah, that's why a function call this:
+Meg talked to herself, "ah, that's why a function call this":
 
 ```clojure
 (chord :c3 :major)
 ```
 
-returned:
+"returned":
 ```clojure
 (48 55 52)
 ```
@@ -173,9 +173,8 @@ returned:
 She could understood the `chord` function, its meaning and how to use.
 However, the problem was how to make the piano sound of
 `(chord :c3 :major)`.
-
 She typed `(piano 48) (piano 55) (piano 52)` in the same line and
-evaluated the line, but the sounds was something different.
+evaluated the line, but the sounds was a single note.
 
 > On repl, writing `(piano 48) (piano 55) (piano 52)` in a single line
 > works and makes a chord sound. But unfortunately, this doesn't work
@@ -183,8 +182,7 @@ evaluated the line, but the sounds was something different.
 
 Meg thought a while, thinking what she learned at ClojureBridge
 workshop. Suddenly, the idea came up on her mind, "write a function!"
-
-She wrote a function, `c3-major-chord` on `play.clj` file:
+Soon, she wrote a function, `c3-major-chord` in `play.clj` file:
 
 ```clojure
 ;; function definition
