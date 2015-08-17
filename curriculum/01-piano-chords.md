@@ -138,8 +138,8 @@ a *chord*, a mixture of a couple of notes, like this:
 ![chord](img/chords_c3.png)
 
 Meg realized that Overtone's `chord` function was a handy chords
-generator, which returns three chord in digits.
-Too learn how to use `chord` function, Meg looked at the document.
+generator, which returns three numbers of the chord.
+Too see how to use `chord` function, Meg looked at the document.
 She moved the cursor right next to the function name *chord*,
 right clicked and selected "show docs".
 
@@ -157,19 +157,56 @@ Returns a set of notes for the specified chord. The root must be in
   (chord :Bb4 :dim)   ; b flat diminished -> #{70 73 76}
 ```
 
-Ah, so the following function call:
+Meg talked to herself, "ah, that's why a function call this:
 
-    (chord :c3 :major)
+```clojure
+(chord :c3 :major)
+```
 
-Returns:
+returned:
+```clojure
+(48 55 52)
+```
 
-    (48 55 52)
+"Got it."
 
-This returns the three note numbers that correspond to the C major
-chord. While we **could** type all this one the same line to play a
-chord:
+She could understood the `chord` function, its meaning and how to use.
+However, the problem was how to make the piano sound of
+`(chord :c3 :major)`.
 
-    (piano 48) (piano 55) (piano 52)
+She typed `(piano 48) (piano 55) (piano 52)` in the same line and
+evaluated the line, but the sounds was something different.
+
+> On repl, writing `(piano 48) (piano 55) (piano 52)` in a single line
+> works and makes a chord sound. But unfortunately, this doesn't work
+> on Light Table.
+
+Meg thought a while, thinking what she learned at ClojureBridge
+workshop. Suddenly, the idea came up on her mind, "write a function!"
+
+She wrote a function, `c3-major-chord` on `play.clj` file:
+
+```clojure
+;; function definition
+(defn c3-major-chord
+  []
+  (piano 48)
+  (piano 55)
+  (piano 52))
+```
+At the last line of the function, she evaluated it.
+Then, wrote another line to use this function.
+
+```clojure
+;; usage
+(c3-major-chord)
+```
+
+On the right end of this line, she evaluated it also.
+Hey! a piano chord! Meg heard the sound of a chord not a single note.
+
+
+### sequence of notes
 
 Icky. We are dealing with Clojure, and it has the ability to
 *iterate* over a list of values (called a *sequence*), and run the
