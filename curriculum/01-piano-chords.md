@@ -253,7 +253,7 @@ Again, looking at the function, she thought how to make this function
 more general. That's because the function can make only c3 major
 chord, but a bunch of other chords are out there... a bunch of functions for
 each chord doesn't make sense.
-"Ha, ha! I should change the function that takes arguments," she shouted and smiled.
+"Ha, ha! I should change the function so that it will take arguments," she shouted and smiled.
 
 Since the `chord` function takes two arguments, root and chord-name,
 the function needs two arguments, also.
@@ -331,53 +331,71 @@ Meg thought she would try some more.
 So far, Meg enjoyed making piano notes or chords.
 It was fun to explore more, but she wondered how to make a melody.
 When she evaluated the file, `play.clj`, she heard the melody of
-Twinkle Little Star. She wanted to something like that.
-She went to Overtone documents and examples and found that
-it was to introduce a *progression* by `at` function.
+Twinkle Little Star. She wanted to do something like that.
+She went to Overtone documents and examples, then found that
+the answer was to introduce a *progression* by `at` function.
 
-The idea is put time differences to successive notes or chords.
-For example, note1 at now, note2 at 1 second later, note3 at 2 seconds
-later, and so on.
+The idea is by setting time differences to successive notes or chords,
+for example, note1 at now, note2 at 1 second later, note3 at 2 seconds
+later, and so on, shifts the time to play each sound. This is why `at`
+function takes time for its first argument.
+
+Meg used `at` function and wrote this:
+
+```clojure
+(let [time (now)]
+  (at         time  (piano-chord :d4 :minor7))
+  (at (+ 2000 time) (piano-chord :g3 :major7))
+  (at (+ 4000 time) (piano-chord :c3 :major7))
+  (at (+ 6000 time) (piano-chord :e3 :minor7)))
+```
+
+She used `let` binding, which she learned at ClojureBridge main
+curriculum, Functions module. With `let` binding, time holds the
+current time (the time you hit the ctrl/cmd + space), which is
+the return value of `now` function.
+The `now` function returns the value of the current time in
+*milliseconds*. ( 1 second = 1000 milliseconds)
+
+The code above works like this:
+1. play piano chord of :d4 :minor7 now
+2. play piano chord of :g3 :major7 2 seconds later from now
+3. play piano chord of :c3 :major7 4 seconds later from now
+4. play piano chord of :e3 :minor7 6 seconds later from now
+
+In another words, four piano chords are *scheduled* to play every 2
+seconds. Overtone takes care of scheduling stuff.
+
+Meg changed the parameters a bit and tried:
+
+```clojure
+(let [time (now)]
+  (at         time  (piano-chord :c4 :minor))
+  (at (+ 3000 time) (piano-chord :g3 :dom7))
+  (at (+ 4000 time) (piano-chord :f3 :minor))
+  (at (+ 7000 time) (piano-chord :g3 :dom7))
+  (at (+ 8000 time) (piano-chord :c4 :minor)))
+```
+
+Hey, this sounds like really music!
 
 
+### complete Twinkle Little Star
 
-Instead of typing in piano chords, let’s make a *progression*, and
-have the computer play them in succession. This requires the `at`
-function, which takes the time to play something and something to
-play.
+Meg recalled, `play.clj` played only the first part of Twinkle Little
+Start. She decided to add next part. That would be a nice exercise.
 
-First, we create a variable, `time` to hold the current time by
-calling the `now` function&#x2026;
+![Twinkle Little Star](img/TwinkleTwinkle_C_Image.jpg)
 
-    (let [time (now)]
-      (at         time  (piano-chord :d4 :minor7))
-      (at (+ 2000 time) (piano-chord :g3 :major7))
-      (at (+ 4000 time) (piano-chord :c3 :major7))
-      (at (+ 6000 time) (piano-chord :e3 :minor7)))
 
-All but the first `at` call, tries to figure out some exact time
-(from now) to play, by adding a number of *milliseconds* to `time`.
-Keep in mind that all four `piano-chord` lines are evaluated, and
-*scheduled* to play at some time. Overtone takes care of when.
-
-Try again?
-
-    (let [time (now)]
-      (at         time  (piano-chord :c4 :minor))
-      (at (+ 3000 time) (piano-chord :g3 :dom7))
-      (at (+ 4000 time) (piano-chord :f3 :minor))
-      (at (+ 7000 time) (piano-chord :g3 :dom7))
-      (at (+ 8000 time) (piano-chord :c4 :minor)))
+4. Encore
+---------
 
 I can’t really imagine creating a song this way&#x2026;this amount of
 typing would require a serious editor to keep our fingers from
 getting bloody.
 Clojure is all about *succinctness*, however, let’s leave this and
 move on to other ways to make music.
-
-4. Encore
----------
-
 
 While we will move on, if you are interested in playing realistic
 sounds, look at [this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html) for building up an
