@@ -22,11 +22,14 @@
       (at (+ (* i step) time) (chords (nth phrases i))))))
 
 (defn twinkle
-  []
-  (let [start1 (now)
-        step1 700
-        start2 (+ start1 (* step1 (+ 1 (count phrases1))))
-        step2 680]
-    (melody1 start1 step1 phrases1)
-    (melody2 start2 step2 phrases2)))
+  "plays a part of Twinkle Little Star.
+  if time is not given, starts playing immediately."
+  ([] (twinkle (now)))
+  ([time]
+      (let [start1 time
+            step1 680
+            start2 (+ start1 (* step1 (+ 1 (count phrases1))))
+            step2 640]
+        (melody1 start1 step1 phrases1)
+        (melody2 start2 step2 phrases2))))
 

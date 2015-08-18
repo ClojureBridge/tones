@@ -393,30 +393,68 @@ are'. If I add only 'Up above the world so high', next is the
 repetition of the same phrase. The last is the repetition of the first
 part," Meg thought.
 
-What she needed to code was a phrase of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`.
+What she needed to code was a phrase of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
+and stick functions together that she learned so far. Then, she wrote
+the function `middle-melody` like this:
+
+```clojure
+;; notes of the middle phrase
+(def phrase [:g3 :g3 :f3 :f3 :e3 :e3 :d3])
+
+;; function definition
+(defn middle-melody
+  [start]
+  (let [step 650
+        notes phrase]
+    (dotimes [i (count notes)]
+      (at (+ start (* i step)) (piano (note (nth notes i)))))))
+```
+
+The function, `middle-melody`, takes start time so that the successive
+repetition can start after certain delay.
+She chose [`dotimes`](http://clojuredocs.org/clojure.core/dotimes)
+function among a couple of other choices to looping the `at` function
+with its argument. Also, she tried some step variations to find a good
+interval between notes.
+
+Meg tested the function she wrote:
+
+```clojure
+(middle-melody (now))
+```
+
+It sounded good. The last piece was to play all, `twinkle`,
+`middle-melody`, `middle-melody`, then `twinkle` in order.
+
+```clojure
+(let [start (now)]
+  (twinkle start)
+  (middle-melody (+ start 11000))
+  (middle-melody (+ start 16500))
+  (twinkle (+ start 22000)))
+```
+
+When Meg evaluated this `let` form at the end of line,
+yes! it was a whole Twinkle Little Star by piano.
+Meg was satisfied with the melody she created on her computer.
 
 
-4. Encore
----------
+4. Finale - Epilogue
+---------------------
 
-I can’t really imagine creating a song this way&#x2026;this amount of
-typing would require a serious editor to keep our fingers from
-getting bloody.
+Whew. This lessen covered a lot of ground including a bit about Overtone's
+interface to SuperCollider music synthesis engine and how to use it.
+
+It's really hard to imagine creating a song like this way, in another
+words, this amount of typing. Probably, the work would require a
+serious editor to keep our fingers from getting bloody.
 Clojure is all about *succinctness*, however, let’s leave this and
-move on to other ways to make music.
+look at other useful ways to make music.
 
 While we will move on, if you are interested in playing realistic
-sounds, look at [this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html) for building up an
-ethereal-sounding flute solo, or check out the [Leipzig Library](https://github.com/ctford/leipzig) for
-making it easier to build this sort of music compositions without
-all the typing we did in this last example.
-
-# Summary
-
-Whew. We covered a lot of ground in this lesson. We learned a bit
-about the Overtone interface to the SuperCollider music synthesis
-engine, and how to add that to our `project.clj` file.
-
-We then learned how to include this library in a REPL, and played
-around with some of the functions available to us to create some
-piano chords.
+sounds, look at
+[this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html)
+for building up an ethereal-sounding flute solo, or check out the
+[Leipzig Library](https://github.com/ctford/leipzig) for making it
+easier to build this sort of music compositions without all the typing
+we did in this last example.
