@@ -393,8 +393,8 @@ repetition of the same phrase. The last is the repetition of the first
 part," Meg thought.
 
 What she needed to code was to play notes of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
-and stick functions together that she learned so far. Then, she wrote
-the function `middle-melody` like this:
+and stick functions together that she learned so far. Tested a small
+code for a while, she wrote the function `middle-melody` like this:
 
 ```clojure
 ;; notes of the middle phrase
@@ -409,7 +409,7 @@ the function `middle-melody` like this:
       (at (+ start (* i step)) (piano (note (nth notes i)))))))
 ```
 
-The function, `middle-melody`, takes start time so that the successive
+The function, `middle-melody`, takes a start time so that the successive
 repetition can start after a certain delay.
 She chose [`dotimes`](http://clojuredocs.org/clojure.core/dotimes)
 function among a couple of other choices to looping the `at`
