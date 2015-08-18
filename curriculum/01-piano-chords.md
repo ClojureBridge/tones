@@ -251,16 +251,14 @@ the repetition by the `doseq`:
 
 Again, looking at the function, she thought how to make this function
 more general. That's because the function can make only c3 major
-chord. There are bunch of other chords... a bunch of functions for
+chord, but a bunch of other chords are out there... a bunch of functions for
 each chord doesn't make sense.
-"Ha, ha! I should write another function," she shouted and smiled.
+"Ha, ha! I should change the function that takes arguments," she shouted and smiled.
 
-To use the same function for a bunch of other chords,
-the function needs two arguments, root and chord-name.
-This requirement came from `chord` function arguments.
-
-Now, the function got another name, `piano-chord`, and takes two
-arguments:
+Since the `chord` function takes two arguments, root and chord-name,
+the function needs two arguments, also.
+Now, the function got another name, `piano-chord`, as it went to more
+general:
 
 ```clojure
 ;; function definition
@@ -269,7 +267,7 @@ arguments:
     (piano note)))
 ```
 
-After evaluating the function, she wrote lines of code to use it.
+Next, she wrote lines of code to use it.
 
 ```clojure
 ;; usage
@@ -277,15 +275,19 @@ After evaluating the function, she wrote lines of code to use it.
 (piano-chord :e2 :major)
 ```
 
-Her feeling was quite happy when she evaluated these lines one by one.
+Her feeling was quite happy when she evaluated the function and these lines one by one.
+
+### [BONUS] change the function to take multiple sets of arguments
 
 Well, she didn't stop looking at this brand new function
-`piano-chord` since the `chord` takes the third argument,
-a `inversion` parameter, which is optional.
+`piano-chord` since the `chord` can take the third argument,
+an `inversion` parameter, which is optional to the `chord`.
 Given that, the `piano-chord` should let her have this sort of
-*alternate* behavior. When defining our `piano-chord` function, she
-can specify each *behavior* based on how many parameters are given
-to the function, like this:
+*alternate* behavior.
+
+Clojure has a way to define multiple
+*behavior* based on how many parameters are given.
+Using this feature, `piano-chord` function became like this:
 
 ```clojure
 (defn piano-chord
@@ -297,28 +299,47 @@ to the function, like this:
       (piano note))))
 ```
 
-Now, `piano-chord` function definition got two body entries,
+The `piano-chord` function definition got two body entries,
 where the first element of each is a vector of the
 parameters. Based on the number of parameters, 2 or 3, either the
 first or second line is executed.
 
-In other words, if we call this function with two parameters (the
-`root` note, and the `chord-name`, the first line is called. If we
-specify three, the `root`, the `chord-name` *and* the `inversion`,
-the second is called.
+If this gets evaluated:
 
-Let’s try playing a moody chord:
+```clojure
+(piano-chord :c3 :minor)
+```
 
-    (piano-chord :c3 :minor)
+the first body entry will be used. When the arguments are three:
 
-Or a *seriously* moody chord:
+```clojure
+(piano-chord :c1 :dim 4)
+```
 
-    (piano-chord :c1 :dim 4)
+the second body is called. This is a *seriously* moody chord.
+There're a lot of chords, for example, this also:
 
-Or a popular chord that if you play it, you will want to resolve and
-play something else&#x2026;
+```clojure
+(piano-chord :g3 :dom7)
+```
 
-    (piano-chord :g3 :dom7)
+Meg thought she would try some more.
+
+
+### make a melody
+
+So far, Meg enjoyed making piano notes or chords.
+It was fun to explore more, but she wondered how to make a melody.
+When she evaluated the file, `play.clj`, she heard the melody of
+Twinkle Little Star. She wanted to something like that.
+She went to Overtone documents and examples and found that
+it was to introduce a *progression* by `at` function.
+
+The idea is put time differences to successive notes or chords.
+For example, note1 at now, note2 at 1 second later, note3 at 2 seconds
+later, and so on.
+
+
 
 Instead of typing in piano chords, let’s make a *progression*, and
 have the computer play them in succession. This requires the `at`
