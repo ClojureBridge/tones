@@ -1,5 +1,5 @@
-Twinkle Stars - Making Sounds with Overtone
-===========================================
+Twinkle Little Star - Making Sounds with Overtone
+=================================================
 
 Staring from scratch
 ---------------------

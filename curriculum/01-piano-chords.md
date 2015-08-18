@@ -1,5 +1,5 @@
-Twinkle Stars - Making Sounds with Overtone
-===========================================
+Twinkle Little Star - Making Sounds with Overtone
+=================================================
 
 This is a story of Meg who attended a ClojureBridge workshop
 recently.  Meg has always been a bit of a music nerd, but wondered
