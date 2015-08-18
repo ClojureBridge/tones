@@ -384,8 +384,16 @@ Hey, this sounds like really music!
 
 Meg recalled, `play.clj` played only the first part of Twinkle Little
 Start. She decided to add next part. That would be a nice exercise.
+She googled and found the score of this well-known lullaby.
 
 ![Twinkle Little Star](img/TwinkleTwinkle_C_Image.jpg)
+
+"OK, so I already have the melody from the beginning to 'what you
+are'. If I add only 'Up above the world so high', next is the
+repetition of the same phrase. The last is the repetition of the first
+part," Meg thought.
+
+What she needed to code was a phrase of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`.
 
 
 4. Encore
