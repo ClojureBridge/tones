@@ -236,7 +236,7 @@ When Meg evaluated this `doseq`, she could hear the same chord
 as three piano functions.
 
 
-### writing a function that takes argument
+### writing a function that takes arguments
 
 At first, Meg rewrote the `c3-major-code` function just replacing
 the repetition by the `doseq`:
@@ -253,12 +253,11 @@ Again, looking at the function, she thought how to make this function
 more general. That's because the function can make only c3 major
 chord. There are bunch of other chords... a bunch of functions for
 each chord doesn't make sense.
-
 "Ha, ha! I should write another function," she shouted and smiled.
 
 To use the same function for a bunch of other chords,
-the function needs two arguments. This requirement came from `chord`
-function arguments, root and chord-name.
+the function needs two arguments, root and chord-name.
+This requirement came from `chord` function arguments.
 
 Now, the function got another name, `piano-chord`, and takes two
 arguments:
@@ -276,7 +275,7 @@ After evaluating the function, she wrote lines of code to use it.
 ;; usage
 (piano-chord :c3 :minor)
 (piano-chord :e2 :major)
-``
+```
 
 Her feeling was quite happy when she evaluated these lines one by one.
 
