@@ -252,7 +252,7 @@ the repetition by the `doseq`:
 Again, looking at the function, she thought how to make this function
 more general. That's because the function can make only c3 major
 chord, but a bunch of other chords are out there... a bunch of functions for
-each chord doesn't make sense.
+each chord didn't make sense.
 "Ha, ha! I should change the function so that it will take arguments," she shouted and smiled.
 
 Since the `chord` function takes two arguments, root and chord-name,
@@ -323,22 +323,20 @@ There're a lot of chords, for example, this also:
 (piano-chord :g3 :dom7)
 ```
 
-Meg thought she would try some more.
-
 
 ### make a melody
 
 So far, Meg enjoyed making piano notes or chords.
-It was fun to explore more, but she wondered how to make a melody.
-When she evaluated the file, `play.clj`, she heard the melody of
-Twinkle Little Star. She wanted to do something like that.
-She went to Overtone documents and examples, then found that
+It was absolutely fun, but she wondered how to make a melody.
+When the `twinkle` function in `play.clj` file got evaluated, it
+played the melody of Twinkle Little Star. She wanted to do something
+like that. Among Overtone documents and examples, she found that
 the answer was to introduce a *progression* by `at` function.
 
-The idea is by setting time differences to successive notes or chords,
-for example, note1 at now, note2 at 1 second later, note3 at 2 seconds
-later, and so on, shifts the time to play each sound. This is why `at`
-function takes time for its first argument.
+The idea of *progression* is by setting time differences to successive
+notes or chords, for example, note1 at now, note2 at 1 second later,
+note3 at 2 seconds later, and so on, shifts the time to play each
+sound. This is why `at` function takes time for its first argument.
 
 Meg used `at` function and wrote this:
 
@@ -358,15 +356,16 @@ The `now` function returns the value of the current time in
 *milliseconds*. ( 1 second = 1000 milliseconds)
 
 The code above works like this:
+
 1. play piano chord of :d4 :minor7 now
 2. play piano chord of :g3 :major7 2 seconds later from now
 3. play piano chord of :c3 :major7 4 seconds later from now
 4. play piano chord of :e3 :minor7 6 seconds later from now
 
 In another words, four piano chords are *scheduled* to play every 2
-seconds. Overtone takes care of scheduling stuff.
+seconds. Overtone takes care of this scheduling stuff.
 
-Meg changed the parameters a bit and tried:
+Meg changed the parameters a bit like this:
 
 ```clojure
 (let [time (now)]
@@ -382,7 +381,7 @@ Hey, this sounds like really music!
 
 ### complete Twinkle Little Star
 
-Meg recalled, `play.clj` played only the first part of Twinkle Little
+Meg recalled, `twinkle` function played only the first part of Twinkle Little
 Start. She decided to add next part. That would be a nice exercise.
 She googled and found the score of this well-known lullaby.
 
@@ -393,7 +392,7 @@ are'. If I add only 'Up above the world so high', next is the
 repetition of the same phrase. The last is the repetition of the first
 part," Meg thought.
 
-What she needed to code was a phrase of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
+What she needed to code was to play notes of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
 and stick functions together that she learned so far. Then, she wrote
 the function `middle-melody` like this:
 
@@ -415,10 +414,10 @@ repetition can start after a certain delay.
 She chose [`dotimes`](http://clojuredocs.org/clojure.core/dotimes)
 function among a couple of other choices to looping the `at`
 with its arguments. `nth` is the function she learned at ClojureBridge
-main curriculum, data structures module.
+main curriculum, Data Structures module.
 Also, she tried some step variations to find a good interval between notes.
 
-Meg tested the function she wrote:
+Meg tested the function she just wrote:
 
 ```clojure
 (middle-melody (now))
