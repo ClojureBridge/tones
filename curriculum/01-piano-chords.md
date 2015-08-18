@@ -393,8 +393,8 @@ repetition of the same phrase. The last is the repetition of the first
 part," Meg thought.
 
 What she needed to code was to play notes of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
-and stick functions together that she learned so far. Tested a small
-code for a while, she wrote the function `middle-melody` like this:
+and stick functions together that she learned so far. Tested a couple
+of small code for a while, she wrote the function `middle-melody` like this:
 
 ```clojure
 ;; notes of the middle phrase
