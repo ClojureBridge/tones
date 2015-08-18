@@ -411,11 +411,12 @@ the function `middle-melody` like this:
 ```
 
 The function, `middle-melody`, takes start time so that the successive
-repetition can start after certain delay.
+repetition can start after a certain delay.
 She chose [`dotimes`](http://clojuredocs.org/clojure.core/dotimes)
-function among a couple of other choices to looping the `at` function
-with its argument. Also, she tried some step variations to find a good
-interval between notes.
+function among a couple of other choices to looping the `at`
+with its arguments. `nth` is the function she learned at ClojureBridge
+main curriculum, data structures module.
+Also, she tried some step variations to find a good interval between notes.
 
 Meg tested the function she wrote:
 
@@ -448,13 +449,15 @@ interface to SuperCollider music synthesis engine and how to use it.
 It's really hard to imagine creating a song like this way, in another
 words, this amount of typing. Probably, the work would require a
 serious editor to keep our fingers from getting bloody.
-Clojure is all about *succinctness*, however, let’s leave this and
-look at other useful ways to make music.
+Clojure should be all about *succinctness*, however, let’s leave this
+for now and look at other useful ways to make music.
 
-While we will move on, if you are interested in playing realistic
-sounds, look at
+If you are interested in playing realistic sounds, look at
 [this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html)
-for building up an ethereal-sounding flute solo, or check out the
-[Leipzig Library](https://github.com/ctford/leipzig) for making it
-easier to build this sort of music compositions without all the typing
-we did in this last example.
+for building up an ethereal-sounding flute solo.
+If you want to know making music without typing so much
+like this lessen, check out the
+[Leipzig Library](https://github.com/ctford/leipzig),
+which explains how to build this sort of music compositions easier.
+
+Have fun with making sounds!
