@@ -157,20 +157,20 @@ Returns a set of notes for the specified chord. The root must be in
   (chord :Bb4 :dim)   ; b flat diminished -> #{70 73 76}
 ```
 
-Meg talked to herself, "ah, that's why a function call this":
+Meg talked to herself, "ah, that's why a function call"
 
 ```clojure
 (chord :c3 :major)
 ```
 
-"returned":
+"returned"
 ```clojure
 (48 55 52)
 ```
 
-"Got it."
+"these three, got it."
 
-She could understood the `chord` function, its meaning and how to use.
+She completely understood the `chord` function, its meaning and how to use.
 However, the problem was how to make the piano sound of
 `(chord :c3 :major)`.
 She typed `(piano 48) (piano 55) (piano 52)` in the same line and
@@ -192,8 +192,9 @@ Soon, she wrote a function, `c3-major-chord` in `play.clj` file:
   (piano 55)
   (piano 52))
 ```
+
 At the last line of the function, she evaluated it.
-Then, wrote another line to use this function.
+Then, wrote another line of code to use this function.
 
 ```clojure
 ;; usage
@@ -206,56 +207,99 @@ Hey! a piano chord! Meg heard the sound of a chord not a single note.
 
 ### sequence of notes
 
-Icky. We are dealing with Clojure, and it has the ability to
-*iterate* over a list of values (called a *sequence*), and run the
-same function on it. The `doseq` (for *do a sequence*) is similar to
-the `map` function you learned about during the main workshop in
-that it takes two parameters:
+Meg looked at her function with satisfaction for a while.
+At first, it looked nice, but a repetition of the same function made
+her think, "is there any better way to do this?"
 
- * The sequence of things, for instance, a list of note numbers.
- * A function repeatedly called with each element:
+She went to ClojureBridge curriculum site on the browser,
+http://clojurebridge.github.io/curriculum/#/ ,
+then realized,
+"Icky. This is Clojure. It is very good at
+*iterate* over a a *sequence*."
+In this case, `doseq` function fits well, which she learned at
+ClojureBridge main curriculum. 
 
-    (doseq [note (chord :c3 :major)]  ;; Sequence
-           (piano note))              ;; Behavior
+Since `chord` function returns a sequence of numbers,
+the repetition should be replaced by:
 
-Notice that the first argument to `doseq` specifies the sequence as
-an odd-looking vector: `[variable value ...]`
-
-The number of elements in this vector need to be even, since the
-first element will be the *variable* and the next one will be
-evaluated for its *value*. In our case, the *value* is a call to
-the `chord` function to give us a list of notes to play.
+```clojure
+(doseq [note (chord :c3 :major)]  ;; Sequence
+  (piano note))                   ;; Behavior
+```
 
 The `doseq` assigns the `note` variable the value of the first note,
 and then calls `(piano note)` to play it. It then assigns the second
 value from our `chord` function to `note`, and calls `(piano note)`
-again&#x2026; rinse, and repeat.
+again.
 
-Ha, ha! Should we make that simpler to type by creating a function?
+When Meg evaluated this `doseq`, she could hear the same chord
+as three piano functions.
 
-    (defn piano-chord [root chord-name]
-        (doseq [note (chord root chord-name)]
-               (piano note)))
 
-And now we can type the following if we aren’t feeling quite so happy
-for major chords:
+### writing a function that takes argument
 
-    (piano-chord :c3 :minor)
+At first, Meg rewrote the `c3-major-code` function just replacing
+the repetition by the `doseq`:
 
-However, the `inversion` parameter for the original `chord` function
-is optional, and our `piano-chord` should let us have this sort of
-*alternate* behavior. When defining our `piano-chord` function, we
+```clojure
+;; function definition
+(defn c3-major-chord
+  []
+  (doseq [note (chord :c3 :major)]
+    (piano note))
+```
+
+Again, looking at the function, she thought how to make this function
+more general. That's because the function can make only c3 major
+chord. There are bunch of other chords... a bunch of functions for
+each chord doesn't make sense.
+
+"Ha, ha! I should write another function," she shouted and smiled.
+
+To use the same function for a bunch of other chords,
+the function needs two arguments. This requirement came from `chord`
+function arguments, root and chord-name.
+
+Now, the function got another name, `piano-chord`, and takes two
+arguments:
+
+```clojure
+;; function definition
+(defn piano-chord [root chord-name]
+  (doseq [note (chord root chord-name)]
+    (piano note)))
+```
+
+After evaluating the function, she wrote lines of code to use it.
+
+```clojure
+;; usage
+(piano-chord :c3 :minor)
+(piano-chord :e2 :major)
+``
+
+Her feeling was quite happy when she evaluated these lines one by one.
+
+Well, she didn't stop looking at this brand new function
+`piano-chord` since the `chord` takes the third argument,
+a `inversion` parameter, which is optional.
+Given that, the `piano-chord` should let her have this sort of
+*alternate* behavior. When defining our `piano-chord` function, she
 can specify each *behavior* based on how many parameters are given
 to the function, like this:
 
-    (defn piano-chord
-      ([root chord-name]      (doseq [note (chord root chord-name)]
-                                     (piano note)))
-      ([root chord-name inv]  (doseq [note (chord root chord-name inv)]
-                                     (piano note))))
+```clojure
+(defn piano-chord
+  ([root chord-name]
+    (doseq [note (chord root chord-name)]
+      (piano note)))
+  ([root chord-name inv]
+    (doseq [note (chord root chord-name inv)]
+      (piano note))))
+```
 
-Let’s parse this code. This function definition has two body
-entries, where the first element of each is a vector of the
+Now, `piano-chord` function definition got two body entries,
+where the first element of each is a vector of the
 parameters. Based on the number of parameters, 2 or 3, either the
 first or second line is executed.
 
