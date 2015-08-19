@@ -1,11 +1,31 @@
 # tones
-a beginner friendly simple apps that create tones or sounds by Clojure
 
-#### current status - ** under construction as of May 22, 2015 **
-This overtone app is on the way to become a part of ClojureBridge curriculum.
-It is a nice, fun app worth trying out even right now.
-However, a document has gaps for beginners and, sometime, may not be easy to follow for beginners.
-If your students have some exepriences on Clojure or other languages, this app may be a good one to tackle after the drawing app.
+ClojureBridge capstone app using Overtone to make sounds.
+
+
+## Usage
+
+- LightTable
+    * open `play.clj` and press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
+    <kbd>Enter</kbd> or <kbd>Cmd</kbd> + <kbd>Shift</kbd> +
+    <kbd>Enter</kbd> to evaluate the file.
+    * write `(piano)` and press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> or
+      <kbd>Cmd</kbd> + <kbd>Enter</kbd> to evaluate the form.
+
+- REPL
+    * run `(require 'tones.play)`
+    * change namespace by `(ns tones.play`)
+    * run `(piano)`
+
+## Curriculum
+
+- [Twinkle Little Star - Making Sounds with Overtone](curriculum/01-piano-chords.md)
+
+
+## Overtone and SuperCollider Resources
+
+- [Overtone](http://overtone.github.io/)
+- [SuperCollider](http://supercollider.github.io/)
 
 
 License
