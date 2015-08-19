@@ -79,7 +79,7 @@ Open `project.clj` and change the file from this:
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.6.0"]])
+  :dependencies [[org.clojure/clojure "1.7.0"]])
 ```
 
 To this:
@@ -94,13 +94,9 @@ To this:
                  [overtone "0.9.1"]])
 ```
 
-The differences are two:
+The difference is:
 
-1. `[org.clojure/clojure "1.7.0"]`
-
-    We use newer version of Clojure.
-
-2. `[overtone "0.9.1"]`
+* `[overtone "0.9.1"]`
 
     We just added the Overtone library to our project
 
@@ -151,6 +147,14 @@ them for the moment, as we bask in welcome message:
 
     nil
     user=>
+
+#### Linux users need Jack
+
+If you are on Linux, you need to have jack daemon running. Take a
+look at the document
+[Installing and starting jack](http://github.com/overtone/overtone/wiki/Installing-and-starting-jack),
+and install packages.
+
 
 ### 4. Edit a Clojure file
 
