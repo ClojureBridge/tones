@@ -11,6 +11,12 @@ music. Intrigued, she started to investigate Overtone.
 instruments and music using Clojure. While it is very advanced, it is
 pretty easy to get started, and interesting to explore.
 
+** Linux Users **
+If you are on Linux, you need to have jack daemon running. Take a
+look at the document
+[Installing and starting jack](http://github.com/overtone/overtone/wiki/Installing-and-starting-jack),
+and install packages.
+
 
 1. Prelude - getting started
 ----------------------------
