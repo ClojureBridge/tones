@@ -13,7 +13,7 @@ pretty easy to get started, and interesting to explore.
 
 **Linux Users**
 If you are on Linux, you need to have jack daemon running. Take a
-look at the document
+look,
 [Installing and starting jack](http://github.com/overtone/overtone/wiki/Installing-and-starting-jack),
 and install packages.
 
@@ -76,7 +76,7 @@ to make piano sounds.
 * https://github.com/overtone/overtone/blob/master/src/overtone/examples/workshops/resonate2013/ex01_phrasestudy.clj
 
 
-2. Etude - Playing Piano Notes
+2. Etude - playing piano notes
 ------------------------------
 
 #### basic `piano` function usage
@@ -186,7 +186,7 @@ evaluated the line, but the sounds was a single note.
 > works and makes a chord sound. But unfortunately, this doesn't work
 > on Light Table.
 
-Meg thought a while, thinking what she learned at ClojureBridge
+Meg thought a while, recalling what she learned at ClojureBridge
 workshop. Suddenly, the idea came up on her mind, "write a function!"
 Soon, she wrote a function, `c3-major-chord` in `play.clj` file:
 
@@ -387,7 +387,7 @@ Hey, this sounds like really music!
 
 ### complete Twinkle Little Star
 
-Meg recalled, `twinkle` function played only the first part of Twinkle Little
+Meg remembered, `twinkle` function played only the first part of Twinkle Little
 Start. She decided to add next part. That would be a nice exercise.
 She googled and found the score of this well-known lullaby.
 
@@ -396,7 +396,7 @@ She googled and found the score of this well-known lullaby.
 "OK, so I already have the melody from the beginning to 'what you
 are'. If I add only 'Up above the world so high', next is the
 repetition of the same phrase. The last is the repetition of the first
-part," Meg thought.
+part," Meg murmured.
 
 What she needed to code was to play notes of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
 and stick functions together that she learned so far. Tested a couple
@@ -445,7 +445,7 @@ yes! it was a whole Twinkle Little Star by piano.
 Meg was satisfied with the melody she created on her computer.
 
 
-4. Finale - Epilogue
+4. Finale - epilogue
 ---------------------
 
 Whew. This lessen covered a lot of ground including a bit about Overtone's
