@@ -19,6 +19,5 @@
 ;; for example
 ;; (piano 67)
 ;;
-;; listen to the sound you have maid
+;; listen to the sound you have made
 ;;
-

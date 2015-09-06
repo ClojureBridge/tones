@@ -449,7 +449,7 @@ Meg was satisfied with the melody she created on her computer.
 4. Finale - epilogue
 ---------------------
 
-Whew. This lessen covered a lot of ground including a bit about Overtone's
+Whew. This lesson covered a lot of ground including a bit about Overtone's
 interface to SuperCollider music synthesis engine and how to use it.
 
 It's really hard to imagine creating a song like this way, in another
@@ -462,7 +462,7 @@ If you are interested in playing realistic sounds, look at
 [this essay and code](http://blog.josephwilk.net/clojure/creating-instruments-with-overtone.html)
 for building up an ethereal-sounding flute solo.
 If you want to know making music without typing so much
-like this lessen, check out the
+like this lesson, check out the
 [Leipzig Library](https://github.com/ctford/leipzig),
 which explains how to build this sort of music compositions easier.
 
