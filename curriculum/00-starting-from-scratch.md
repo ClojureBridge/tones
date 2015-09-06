@@ -13,7 +13,7 @@ However, starting from scratch, in another words, starting from
 creating a project, would be a good training to get yourself
 familiarize to a Clojure application. 
 
-This document explains how to create a project that uses Overtone.
+This document explains how to create a project that uses [Overtone](https://github.com/overtone/overtone).
 
 ### 1. Create a project
 
