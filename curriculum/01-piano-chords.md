@@ -24,7 +24,7 @@ and install packages.
 ### Download the project
 
 Meg has already learned ClojureBridge has a template project for
-Overtone. The first thing to get started is to *clone out* that
+Overtone. The first thing to get started is to *clone* that
 project using `git` command.
 
 Meg opened the terminal and typed the command:
@@ -223,7 +223,7 @@ then realized,
 "Icky. This is Clojure. It is very good at
 *iterate* over a a *sequence*."
 In this case, `doseq` function fits well, which she learned at
-ClojureBridge main curriculum. 
+ClojureBridge main curriculum.
 
 Since `chord` function returns a sequence of numbers,
 the repetition should be replaced by:

@@ -4,14 +4,14 @@ Twinkle Twinkle Little Star - Making Sounds with Overtone
 Staring from scratch
 ---------------------
 
-If you have cloned out github repository,
+If you have cloned github repository,
 https://github.com/ClojureBridge/tones,
 it has a project already setup.
 You can start by evaluating a file, `play.clj`.
 
 However, starting from scratch, in another words, starting from
 creating a project, would be a good training to get yourself
-familiarize to a Clojure application. 
+familiarize to a Clojure application.
 
 This document explains how to create a project that uses [Overtone](https://github.com/overtone/overtone).
 
