@@ -1,4 +1,4 @@
-Twinkle Little Star - Making Sounds with Overtone
+Twinkle Twinkle Little Star - Making Sounds with Overtone
 =================================================
 
 This is a story of Meg who attended a ClojureBridge workshop
@@ -47,13 +47,13 @@ Next, she evaluated `play.clj` by hitting
 which took a while to finish.
 
 When it completed, hey listen, music!
-Familiar melody of "Twinkle Little Star" came out from Meg's computer.
+The familiar melody of "Twinkle Twinkle Little Star" came out from Meg's computer.
 
 Meg moved the cursor right next to `(twinkle)` and evaluated this line
 by hitting
 <kbd>Cmd</kbd> + <kbd>Enter</kbd>
 (or <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
-Again, she heard the music. It was the first part of "Twinkle Little
+Again, she heard the music. It was the first part of "Twinkle Twinkle Little
 Star" played by a piano.
 
 > On `lein repl`, start up repl at the top tones directory.
@@ -335,7 +335,7 @@ There're a lot of chords, for example, this also:
 So far, Meg enjoyed making piano notes or chords.
 It was absolutely fun, but she wondered how to make a melody.
 When the `twinkle` function in `play.clj` file got evaluated, it
-played the melody of Twinkle Little Star. She wanted to do something
+played the melody of Twinkle Twinkle Little Star. She wanted to do something
 like that. Among Overtone documents and examples, she found that
 the answer was to introduce a *progression* by `at` function.
 
@@ -385,13 +385,14 @@ Meg changed the parameters a bit like this:
 Hey, this sounds like really music!
 
 
-### complete Twinkle Little Star
+### complete Twinkle Twinkle Little Star
 
-Meg remembered, `twinkle` function played only the first part of Twinkle Little
-Start. She decided to add next part. That would be a nice exercise.
-She googled and found the score of this well-known lullaby.
+Meg remembered, `twinkle` function played only the first part of
+Twinkle Twinkle Little Star. She decided to add next part. That would
+be a nice exercise.  She googled and found the score of this
+well-known lullaby.
 
-![Twinkle Little Star](img/TwinkleTwinkle_C_Image.jpg)
+![Twinkle Twinkle Little Star](img/TwinkleTwinkle_C_Image.jpg)
 
 "OK, so I already have the melody from the beginning to 'what you
 are'. If I add only 'Up above the world so high', next is the
@@ -441,7 +442,7 @@ It sounded good. The last piece was to play all, `twinkle`,
 ```
 
 When Meg evaluated this `let` form at the end of line,
-yes! it was a whole Twinkle Little Star by piano.
+yes! it was a whole Twinkle Twinkle Little Star by piano.
 Meg was satisfied with the melody she created on her computer.
 
 

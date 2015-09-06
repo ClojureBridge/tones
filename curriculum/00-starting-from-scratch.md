@@ -1,4 +1,4 @@
-Twinkle Little Star - Making Sounds with Overtone
+Twinkle Twinkle Little Star - Making Sounds with Overtone
 =================================================
 
 Staring from scratch

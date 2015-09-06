@@ -22,8 +22,8 @@
       (at (+ (* i step) time) (chords (nth phrases i))))))
 
 (defn twinkle
-  "plays a part of Twinkle Little Star.
-  if time is not given, starts playing immediately."
+  "Plays a part of Twinkle Twinkle Little Star.
+  If time is not given, starts playing immediately."
   ([] (twinkle (now)))
   ([time]
       (let [start1 time

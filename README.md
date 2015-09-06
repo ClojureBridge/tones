@@ -19,7 +19,7 @@ ClojureBridge capstone app using Overtone to make sounds.
 
 ## Curriculum
 
-- [Twinkle Little Star - Making Sounds with Overtone](curriculum/01-piano-chords.md)
+- [Twinkle Twinkle Little Star - Making Sounds with Overtone](curriculum/01-piano-chords.md)
 
 
 ## Overtone and SuperCollider Resources
