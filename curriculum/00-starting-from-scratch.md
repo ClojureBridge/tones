@@ -1,32 +1,25 @@
-Twinkle Little Star - Making Sounds with Overtone
+Twinkle Twinkle Little Star - Making Sounds with Overtone
 =================================================
 
 Staring from scratch
 ---------------------
 
-If you have cloned out github repository,
+If you have cloned github repository,
 https://github.com/ClojureBridge/tones,
 it has a project already setup.
 You can start by evaluating a file, `play.clj`.
 
 However, starting from scratch, in another words, starting from
 creating a project, would be a good training to get yourself
-familiarize to a Clojure application. 
+familiarize to a Clojure application.
 
-This document explains how to create a project that uses Overtone.
+This document explains how to create a project that uses [Overtone](https://github.com/overtone/overtone).
 
 ### 1. Create a project
 
-Like we learned by the
+As we learned from the
 [first project](https://github.com/ClojureBridge/drawing/blob/master/curriculum/first-program.md#create-a-project),
-create a project using `lein new`.
-We may put the first project and this together and make a single
-project; however, to make it simple and easy to understand, let's create a
-brand new project.
-Once you become familiar with Clojure's project and its setting,
-it would be a good training to put these projects together.
-
-To create a new project, open the terminal and run this command:
+we can create a project using `lein new`. Open the terminal and run this command:
 
 ```bash
 lein new explore-overtone
