@@ -278,7 +278,9 @@ Next, she wrote lines of code to use it.
 ```clojure
 ;; usage
 (piano-chord :c3 :minor)
-(piano-chord :e2 :major)
+(piano-chord :f3 :minor)
+(piano-chord :g2 :major)
+(piano-chord :c3 :minor)
 ```
 
 Her feeling was quite happy when she evaluated the function and these lines one by one.
@@ -319,14 +321,17 @@ If this gets evaluated:
 the first body entry will be used. When the arguments are three:
 
 ```clojure
-(piano-chord :c1 :dim 4)
+(piano-chord :c2 :dim 1)
 ```
 
 the second body is called. This is a *seriously* moody chord.
 There're a lot of chords, for example, this also:
 
 ```clojure
+(piano-chord :g3 :7sus4)
 (piano-chord :g3 :dom7)
+(piano-chord :c4 :sus4)
+(piano-chord :c4 :minor)
 ```
 
 
@@ -375,14 +380,14 @@ Meg changed the parameters a bit like this:
 
 ```clojure
 (let [time (now)]
-  (at         time  (piano-chord :c4 :minor))
-  (at (+ 3000 time) (piano-chord :g3 :dom7))
-  (at (+ 4000 time) (piano-chord :f3 :minor))
-  (at (+ 7000 time) (piano-chord :g3 :dom7))
-  (at (+ 8000 time) (piano-chord :c4 :minor)))
+  (at time (piano-chord :c4 :minor))
+  (at (+ 1500 time) (piano-chord :f3 :minor 2))
+  (at (+ 3000 time) (piano-chord :g3 :major 1))
+  (at (+ 4100 time) (piano (note :f4)))
+  (at (+ 4500 time) (piano-chord :c3 :minor 2)))
 ```
 
-Hey, this sounds like really music!
+Hey, this sounds like real music!
 
 
 ### complete Twinkle Twinkle Little Star
