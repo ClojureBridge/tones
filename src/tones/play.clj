@@ -1,10 +1,10 @@
 (ns tones.play
   (:use [clojure.repl]
-        [tones.core]
+        [tones.twinkle]
         [overtone.live]
         [overtone.inst.piano]))
 
-(twinkle (+ (now) 2000))
+(twinkle)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evaluate whole file by hitting
