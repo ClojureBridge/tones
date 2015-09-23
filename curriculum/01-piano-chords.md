@@ -79,7 +79,7 @@ to make piano sounds.
 2. Etude - playing piano notes
 ------------------------------
 
-#### basic `piano` function usage
+#### Basic `piano` function usage
 
 Meg started using Overtone functions.
 The first function she tried was `piano` with no arguments.
@@ -95,7 +95,7 @@ computer. Meg evaluated this simple function several times with joy.
 > If you didn't hear anything, check the volume.
 > You did turn up the volume, right?
 
-### `piano` function argument
+### The `piano` function argument
 
 Meg has already learned that the `piano` function takes a note number as an
 argument. For example:
@@ -139,7 +139,7 @@ third octave. Now, she could make a piano note like this:
 > "middle C".
 
 
-### `chord` function
+### The `chord` function
 
 While googling, Meg noticed that a *chord* is the sound of two or more
 notes played at the same time, like this:
@@ -214,7 +214,7 @@ On the right end of this line, she evaluated it also.
 Hey! A piano chord! Meg heard the sound of a chord, not just a single note.
 
 
-### sequence of notes
+### A sequence of notes
 
 Meg looked at her function with satisfaction for a while.
 At first, it looked nice, but a repetition of the same function made
@@ -245,7 +245,7 @@ When Meg evaluated this `doseq`, she could hear the same chord
 as three piano functions.
 
 
-### writing a function that takes arguments
+### Writing a function that takes arguments
 
 At first, Meg rewrote the `c3-major-code` function just replacing
 the repetition by the `doseq`:
@@ -344,7 +344,7 @@ a row.
 (piano-chord :c4 :minor)
 ```
 
-### make a melody
+### Make a melody
 
 So far, Meg enjoyed making piano notes and chords.
 It was absolutely fun, but she wondered how to make a melody.
@@ -398,7 +398,7 @@ Meg changed the parameters a bit like this:
 Hey, this sounds like real music!
 
 
-### complete Twinkle Twinkle Little Star
+### Complete Twinkle Twinkle Little Star
 
 Meg remembered that the `twinkle` function played only the first part
 of Twinkle Twinkle Little Star, and she wanted to add the next
