@@ -12,10 +12,10 @@ synthetic instruments, and music using Clojure. While it is very advanced, it is
 pretty easy to get started, and interesting to explore.
 
 **Linux Users**
-If you are on Linux, you need to have jack daemon running. Take a
-look,
+If you are on Linux, you need to have the jack daemon running. Take a
+look at
 [Installing and starting jack](http://github.com/overtone/overtone/wiki/Installing-and-starting-jack),
-and install packages.
+and install the packages.
 
 
 1. Prelude - getting started
@@ -82,7 +82,7 @@ to make piano sounds.
 #### basic `piano` function usage
 
 Meg started using Overtone functions.
-The first function she tried was `piano` without any argument.
+The first function she tried was `piano` with no arguments.
 Meg typed the function below in the file, `play.clj`:
 
 ```clojure
@@ -90,7 +90,7 @@ Meg typed the function below in the file, `play.clj`:
 ```
 
 She then evaluated this line and, yes!, she heard a piano note from her
-computer. Meg evaluated this simple function a couple of times with joy.
+computer. Meg evaluated this simple function several times with joy.
 
 > If you didn't hear anything, check the volume.
 > You did turn up the volume, right?
@@ -105,10 +105,10 @@ argument. For example:
 ```
 
 The number `48` corresponds to a specific note, but it didn't help Meg
-to understand what note she made. She had heard that musicians are
-used to notes, not numbers, so they want to write notes instead of
-numbers as the argument.  Meg found a nice Overtone converter function,
-`note`.
+to understand what note she made. She knew that musicians are used to
+notes, not numbers, so they would want to write notes instead of
+numbers as the argument.  Meg found a nice Overtone converter
+function, `note`.
 
 When Meg used the function like this:
 
@@ -116,18 +116,18 @@ When Meg used the function like this:
 (note :c3)
 ```
 
-it returned `48`, so the value of `:c3` is `48`.
+it returned the number `48`, so the value of `:c3` is `48`.
 
-Before randomly trying various notes, Meg googled to find the
-correspondence between numbers and notes. Soon, she found many.
-For example,
+Instead of just randomly trying various notes, Meg googled to find the
+mapping between numbers and notes and found this chart:
 
 ![midi note](img/midi-int-midi-note-no-chart.jpg)
 
-![notes](img/Theory-staff-cmajortreble.png)
-from [Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory)
+And this little nugget from [Understanding musical theory](http://wiki.spheredev.org/Understanding_musical_theory):
 
-Looking at the chart, Meg understood `:c3` expressed a `C` note in the
+![notes](img/Theory-staff-cmajortreble.png)
+
+Looking at this information, Meg understood that `:c3` expressed a `C` note in the
 third octave. Now, she could make a piano note like this:
 
 ```clojure
@@ -400,63 +400,60 @@ Hey, this sounds like real music!
 
 ### complete Twinkle Twinkle Little Star
 
-Meg remembered, `twinkle` function played only the first part of
-Twinkle Twinkle Little Star. She decided to add next part. That would
-be a nice exercise.  She googled and found the score of this
-well-known lullaby.
+Meg remembered that the `twinkle` function played only the first part
+of Twinkle Twinkle Little Star, and she wanted to add the next
+part. That would be a nice exercise.  She googled and found the score
+of this well-known lullaby.
 
 ![Twinkle Twinkle Little Star](img/TwinkleTwinkle_C_Image.jpg)
 
 "OK, so I already have the melody from the beginning to 'what you
-are'. If I add only 'Up above the world so high', next is the
-repetition of the same phrase. The last is the repetition of the first
-part," Meg murmured.
+are'. All I need to add is 'Up above the world so high', repeat it,
+and then repeat the first part," Meg murmered.
 
-What she needed to code was to play notes of `:g3 :g3 :f3 :f3 :e3 :e3 :d3`,
-and stick functions together that she learned so far. Tested a couple
-of small code for a while, she wrote the function `middle-melody` like this:
+Reading the score, she figured out that she needed code to play the
+notes `:g3 :g3 :f3 :f3 :e3 :e3 :d3`, and then she could combine
+functions that she had already learned to play the melody. After a bit
+of experimentation and testing, she wrote the up-above `function`:
 
 ```clojure
-;; notes of the middle phrase
-(def phrase [:g3 :g3 :f3 :f3 :e3 :e3 :d3])
-
 ;; function definition
-(defn middle-melody
+(defn up-above
   [start]
   (let [step 650
-        notes phrase]
+        notes [:g3 :g3 :f3 :f3 :e3 :e3 :d3]]
     (dotimes [i (count notes)]
       (at (+ start (* i step)) (piano (note (nth notes i)))))))
 ```
 
-The function, `middle-melody`, takes a start time so that the successive
-repetition can start after a certain delay.
-She chose [`dotimes`](http://clojuredocs.org/clojure.core/dotimes)
-function among a couple of other choices to looping the `at`
-with its arguments. `nth` is the function she learned at ClojureBridge
-main curriculum, Data Structures module.
-Also, she tried some step variations to find a good interval between notes.
+She gave the `up-above` function a `start` parameter so she could
+delay the start until after the first part of the song.  She chose the
+[`dotimes`](http://clojuredocs.org/clojure.core/dotimes) function to
+execute the `at` function multiple times.  `nth` is the function she
+learned in the Data Structures module in the ClojureBridge main
+curriculum. She also tried some variations of `step` variations to
+find a good interval between notes.
 
 Meg tested the function she just wrote:
 
 ```clojure
-(middle-melody (now))
+(up-above (now))
 ```
 
 It sounded good. The last piece was to play all, `twinkle`,
-`middle-melody`, `middle-melody`, then `twinkle` in order.
+`up-above`, `up-above`, then `twinkle` in order.
 
 ```clojure
 (let [start (now)]
   (twinkle start)
-  (middle-melody (+ start 11000))
-  (middle-melody (+ start 16500))
-  (twinkle (+ start 22000)))
+  (up-above (+ start 10400))
+  (up-above (+ start 15600))
+  (twinkle (+ start 20800)))
 ```
 
 When Meg evaluated this `let` form at the end of line,
-yes! it was a whole Twinkle Twinkle Little Star by piano.
-Meg was satisfied with the melody she created on her computer.
+she heard the whole melody of Twinkle Twinkle Little Star played
+on a piano!
 
 
 4. Finale - epilogue

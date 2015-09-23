@@ -4,7 +4,7 @@
         [overtone.live]
         [overtone.inst.piano]))
 
-(twinkle (+ (now) 2000))
+(twinkle)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evaluate whole file by hitting
