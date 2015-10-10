@@ -47,7 +47,11 @@ Next, she evaluated `play.clj` by hitting
 which took a while to finish.
 
 When it completed, hey listen, music!
-The familiar melody of "Twinkle Twinkle Little Star" came out from Meg's computer.
+The familiar melody of "Twinkle Twinkle Little Star" came out from
+Meg's computer.
+
+> If you didn't hear anything, check the volume.
+> You did turn up the volume, right?
 
 Meg moved the cursor right next to `(twinkle)` and evaluated this line
 by hitting
@@ -91,9 +95,6 @@ Meg typed the function below in the file, `play.clj`:
 
 She then evaluated this line and, yes!, she heard a piano note from her
 computer. Meg evaluated this simple function several times with joy.
-
-> If you didn't hear anything, check the volume.
-> You did turn up the volume, right?
 
 ### The `piano` function argument
 
