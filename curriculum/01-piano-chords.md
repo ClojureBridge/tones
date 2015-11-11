@@ -55,7 +55,7 @@ Meg's computer.
 >
 > **Linux and Windows Users** Probably, you need to startup an
 > external server and connect to it. Please see
-> https://github.com/ClojureBridge/tones/blob/master/curriculum/01-piano-chords.md
+> https://github.com/overtone/overtone/wiki/Connecting-scsynth#connecting-to-an-external-server
 > for details.
 
 Meg moved the cursor right next to `(twinkle)` and evaluated this line
