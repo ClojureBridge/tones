@@ -52,6 +52,11 @@ Meg's computer.
 
 > If you didn't hear anything, check the volume.
 > You did turn up the volume, right?
+>
+> **Linux and Windows Users** Probably, you need to startup an
+> external server and connect to it. Please see
+> https://github.com/ClojureBridge/tones/blob/master/curriculum/01-piano-chords.md
+> for details.
 
 Meg moved the cursor right next to `(twinkle)` and evaluated this line
 by hitting
