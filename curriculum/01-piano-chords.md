@@ -39,14 +39,14 @@ git clone https://github.com/ClojureBridge/tones.git
 
 ### Evaluate the file
 
-Soon, the `git` command downloaded the project, so Meg started Light Table
-and opened the file `tones/src/tones/play.clj`
-Next, she evaluated `play.clj` by hitting
-<kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>
-(or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>),
-which took a while to finish.
+Soon, the `git` command downloaded the project, so Meg started Nightcode.
+On Nightcode, she clicked `Import` tab and imported `tones` project,
+which she just downloaded by `git` command.
+Then, Meg opened the file `tones/src/tones/play.clj`,
+clicked `Run with REPL` followed by `Reload`.
+This was just like, she learned at ClojureBridge workshop.
 
-When it completed, hey listen, music!
+It took a while. When it completed, hey listen, music!
 The familiar melody of "Twinkle Twinkle Little Star" came out from
 Meg's computer.
 
@@ -58,18 +58,27 @@ Meg's computer.
 > https://github.com/overtone/overtone/wiki/Connecting-scsynth#connecting-to-an-external-server
 > for details.
 
-Meg moved the cursor right next to `(twinkle)` and evaluated this line
-by hitting
-<kbd>Cmd</kbd> + <kbd>Enter</kbd>
-(or <kbd>Ctrl</kbd> + <kbd>Enter</kbd>).
+Meg typed `(twinkle)` right next to the prompt on the bottom REPL pane.
+
+```clojure
+tones.play=> (twinkle)
+```
+
+and hit Return(Enter).
 Again, she heard the music. It was the first part of "Twinkle Twinkle Little
 Star" played by a piano.
 
-> To do this in a repl, cd to the tones project root directory and
+> To do this in a lein repl, cd to the tones project root directory and
 > run `lein repl`. Once the repl starts up, `(require 'tones.play)`,
 > which loads and evaluates the file.  You should hear a melody once
 > the file evaluation finishes.  To listen the melody again, change
 > the namespace by typing `(ns tones.play)`, then `(twinkle)`.
+
+
+> If you are using Nightcode 2.0.0, you would run into a problem
+> REPL window doesn't respond.
+> Hit ENTER more than once. You can type and run functions on REPL again.
+
 
 ### What to look at
 
@@ -92,13 +101,13 @@ to make piano sounds.
 
 Meg started using Overtone functions.
 The first function she tried was `piano` with no arguments.
-Meg typed the function below in the file, `play.clj`:
+Meg typed the function on the bottom REPL window.
 
 ```clojure
 (piano)
 ```
 
-She then evaluated this line and, yes!, she heard a piano note from her
+She then hit enter, yes!, she heard a piano note from her
 computer. Meg evaluated this simple function several times with joy.
 
 ### The `piano` function argument
@@ -155,14 +164,16 @@ notes played at the same time, like this:
 Meg realized that Overtone's `chord` function was a handy chord
 generator, which returns the numbers that correspond to the notes of the chord.
 Too see how to use `chord` function, Meg looked at the document.
-She moved the cursor right next to the function name *chord*,
-right clicked and selected "show docs".
-
-> In the repl, `(doc chord)`
-
+She typed:
 
 ```clojure
-overtone.live
+(doc chord)
+```
+
+in REPL window.
+
+```clojure
+overtone.live/chord
 ([root chord-name] [root chord-name inversion])
 Returns a set of notes for the specified chord. The root must be in
   midi note format i.e. :c4.
@@ -187,17 +198,15 @@ Meg said to herself, "ah, that's why a function call"
 
 She completely understood the `chord` function, its meaning and how to use.
 Now she wanted to make the piano sound of
-`(chord :c3 :major)`, so
-she typed `(piano 48) (piano 55) (piano 52)` in the same line and
-evaluated the line, but the sound was just a single note.
+`(chord :c3 :major)`,
+so, in REPL window, she typed `(piano 48) (piano 55) (piano 52)` on the same line.
+Then, she hit enter to evaluated the line.
 
-> On repl, writing `(piano 48) (piano 55) (piano 52)` in a single line
-> works and makes a chord sound. But unfortunately, this doesn't work
-> on Light Table.
-
-Meg thought a while, recalling what she had learned at the ClojureBridge
-workshop. Suddenly, the idea came to her mind, "write a function!"
-Soon, she wrote a function, `c3-major-chord` in `play.clj` file:
+After typing the line, Meg thought a while,
+recalling what she had learned at the ClojureBridge workshop.
+"There should be something better way to do..."
+Suddenly, the idea came to her mind, "write a function!"
+Soon, she wrote a function, `c3-major-chord` in REPL window:
 
 ```clojure
 ;; function definition
@@ -208,7 +217,11 @@ Soon, she wrote a function, `c3-major-chord` in `play.clj` file:
   (piano 52))
 ```
 
-At the last line of the function, she evaluated it.
+> It's better to write your own function definitions
+> in a file. You can save it.
+> You may write `c3-major-chord` function in the bottom of `play.clj`.
+> To evaluate newly added function, click Reload button.
+
 Then, wrote another line of code to use this function.
 
 ```clojure
@@ -216,7 +229,6 @@ Then, wrote another line of code to use this function.
 (c3-major-chord)
 ```
 
-On the right end of this line, she evaluated it also.
 Hey! A piano chord! Meg heard the sound of a chord, not just a single note.
 
 
