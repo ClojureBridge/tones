@@ -43,7 +43,7 @@ Soon, the `git` command downloaded the project, so Meg started Nightcode.
 On Nightcode, she clicked `Import` tab and imported `tones` project,
 which she just downloaded by `git` command.
 Then, Meg opened the file `tones/src/tones/play.clj`,
-clicked `Run with REPL` followed by `Reload`.
+clicked `Run with REPL` followed by `Reload File`.
 This was just like, she learned at ClojureBridge workshop.
 
 It took a while. When it completed, hey listen, music!
@@ -75,9 +75,8 @@ Star" played by a piano.
 > the namespace by typing `(ns tones.play)`, then `(twinkle)`.
 
 
-> If you are using Nightcode 2.0.0, you would run into a problem
-> REPL window doesn't respond.
-> Hit ENTER more than once. You can type and run functions on REPL again.
+> If Nightcode REPL doesn't play well, doesn't respond, doesn't delete character or such,
+> hit ENTER more than once. You can type and run functions on REPL again.
 
 
 ### What to look at
